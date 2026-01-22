@@ -1,5 +1,5 @@
 
-### le rôle de ce service est de répartir les requêtes faites vers le serveur web et de créer un cluster de serveur web non-natif afin d'assurer la continuité de service sur ceux-ci. Ce service est essentiel pour ne pas surcharger les serveurs et assurer une continuité fluide si 1 à un problème.
+### le rôle de ce service est de répartir les requêtes faites vers le serveur web et de créer un cluster de serveur web non-natif afin d'assurer la continuité de service sur ceux-ci. Ce service est essentiel pour ne pas surcharger les serveurs et assurer une continuité fluide si 1 a un problème.
  
 ### Justification choix/ on a choisit de faire avec ce service car il est simple à mettre en place et qu'il permet de créer un cluster non natif simplement. on aurait pu également utiliser apache2.
 

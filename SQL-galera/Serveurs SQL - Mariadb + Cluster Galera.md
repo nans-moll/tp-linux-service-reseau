@@ -1,9 +1,9 @@
-### le rôle de ce service et de répartir les requêtes faites vers le serveur de base de données et de créer un cluster de serveur de base de données natif avec galera afin d'assurer la continuité de service sur ceux-ci. Ce service est essentiel pour ne pas surcharger les serveurs et assurer une continuité fluide si 1 à un problème.
+### le rôle de connecter les 3 serveurs de base de données comme si il n'était qu'on afin d'assurer une continuité de service satisfaisant. Ce service est important et très utile mais pas nécessairement obligatoire 
  
 ### Justification choix/ on a choisit de faire avec ce service car c'est inclus dans mariadb , simple à mettre en place.  
 
 
-### Exposition réseau et sécurité/ on a pas besoin d'ouvrir de port pour les connecter entre elle tant qu'elle sont dans le même sous-réseau donc ici un sous-réseau réservé pour les serveurs SQL. Et ensuite accepter les requêtes depuis le ProxySQL.
+### Exposition réseau et sécurité/ on a pas besoin d'ouvrir de port pour les connecter entre elle tant qu'elle sont dans le même sous-réseau donc ici un sous-réseau réservé pour les serveurs SQL. Et ensuite accepter les requêtes depuis le ProxySQL. Elles se trouvent dans le réseau DATA en 172.16.30.0/24
 
 ## 1/LES PREREQUIS
 ### Avoir un nombre impaire de serveurs (ici 3) sur le même sous réseau 
