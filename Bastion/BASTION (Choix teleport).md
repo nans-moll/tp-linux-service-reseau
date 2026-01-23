@@ -1,18 +1,24 @@
+Qu'est ce qu'un Bastion ?
 
+Un bastion est machine situer un reseau externe (internet) et un reseau interne LAN il permet donc de securiser la circulation entre deux reseaux sans forcemment devoir ouvrir les ports ssh sur chaque machine
+
+Les problemes ?
+
+malheuresement je me suis trop attarder sur le routeur et n'est donc pas pu finir completement le bastion mais cela m'a quand meme fais decouvrir une nouvelle technologie meme si je n'ai pas pu finir comme je le souhaitais
 
 commençons par créer une simple Machine virtuelle pour pouvoir accueillir Debian 12 je lui est mis 4Go de ram 
 
-![[Pasted image 20260121144515.png]]
+![[Pasted image 20260121144515.png]](/Bastion/Pasted%20image%2020260121144515.png)
 
 Une fois avoir créer ma machine virtuelle ainsi que mes utilisateurs nous pouvons passer a l'installation de téléport pour me faciliter la tache je me suis connecter en SSH depuis l'une de mes machines connecter sur le réseau admin  
 
 en premier temps effectuer un Apt update et upgrade pour voir et faire les potentiels mise a jours (important meme si notre vm est toute fraiche):
 
-![[Capture d’écran 2026-01-21 142551.png]]
+![[Capture d’écran 2026-01-21 142551.png]](/Bastion/Capture%20d’écran%202026-01-21%20142551.png)
 
 ensuite ajoutons la clés gpg qui permet la configuration du gestionnaire de paquet et ainsi préparer l'installation de téléport 
 
-![[Capture d’écran 2026-01-21 142503.png]]
+![[Capture d’écran 2026-01-21 142503.png]](/Bastion/Capture%20d’écran%202026-01-21%20142503.png)
 
 ensuite passons a l'installation de teleport et la mise a jour des paquets a l'aide de cette commande 
 
@@ -27,20 +33,20 @@ une fois la configuration importer nous pouvons maintenant aller configurer le f
 
 voici ma configuration de base j'ai modifier les noms pour acceder directement a l'interface de teleport via ma vm admin
 
-![[Capture d’écran 2026-01-21 143257.png]]
+![[Capture d’écran 2026-01-21 143257.png]](/Bastion/Capture%20d’écran%202026-01-21%20143257.png)
 
 une fois le fichier modiifer nous pouvons relancer le systeme
 
-![[Capture d’écran 2026-01-21 143416.png]]
+![[Capture d’écran 2026-01-21 143416.png]](/Bastion/Capture%20d’écran%202026-01-21%20143416.png)
 
 une fois le fichier modifier nous pouvons des a présent lancer téléport et voir ssi teleport est bien lancer a l'aide de ses deux commandes 
 
 sudo 
 
-![[Capture d’écran 2026-01-21 142223.png]]
+![[Capture d’écran 2026-01-21 142223.png]](/Bastion/Capture%20d’écran%202026-01-21%20142223.png)
 
  mais au début ca n'a pas marcher j'ai eu cette erreur 
- ![[Capture d’écran 2026-01-21 143105.png]]
+ ![[Capture d’écran 2026-01-21 143105.png]](/Bastion/Capture%20d’écran%202026-01-21%20143105.png)
 
 en menant mes recherches sur internet j'ai pris la décision de désactiver la fonction acme (protocole permettant d'automatiser la délivrance des certificat ssl ) une fois mis sur "no"
 en restart le système pour sauvegarder les modification du fichier  
@@ -55,27 +61,29 @@ avant de pouvoir accéder a téléport nous devons créer un utilisateur a l'aid
 	-----------------------------------------------------------------------------
 Nous avons maintenant Accéder à l'interface ! 
 
-![[Capture d’écran 2026-01-21 143642.png]]
+![[Capture d’écran 2026-01-21 143642.png]](/Bastion/Capture%20d’écran%202026-01-21%20143642.png)
 
 
 ensuite nous pouvons accéder a l'interface pour ensuite créer notre compte admin 
 
-![[Pasted image 20260121152630.png]]
+![[Pasted image 20260121152630.png]](/Bastion/Pasted%20image%2020260121152630.png)
 
 ensuite nous pouvons lier notre A2F pour plus de sécurité dans mon cas j'ai utiliser l'application duo cisco
 
-![[Capture d’écran 2026-01-21 152737.png]]
+![[Capture d’écran 2026-01-21 152737.png]](/Bastion/Capture%20d’écran%202026-01-21%20152737.png)
 
 une fois avoir créer son compte nous pouvons des a présent procéder a l'enrôlement de nos autres serveurs pour pouvoir s'y connecter en ssh
 
-![[Capture d’écran 2026-01-21 153849.png]]
+![[Capture d’écran 2026-01-21 153849.png]](/Bastion/Capture%20d’écran%202026-01-21%20153849.png)
 
 une fois dans l'interface nous pouvons nous connecter a téléport moi dans mon cas ca ne marchais pas j'ai du creer un utilisateur appeler outscale sur ma machine teleport voici l'erreur que j'avais une fois le user ajouter j'ai pue me connecter en ssh
 
-![[Capture d’écran 2026-01-21 154150.png]]
+![[Capture d’écran 2026-01-21 154150.png]](/Bastion/Capture%20d’écran%202026-01-21%20154150.png)
 
 voici a quoi ca ressemble quand nous nous connectons
 
-![[Capture d’écran 2026-01-21 155004.png]]
+![[Capture d’écran 2026-01-21 155004.png]](/Bastion/Capture%20d’écran%202026-01-21%20155004.png)
 	une fois connecter je vais creer un user pour chaque vm et copier les liens qu'ils me donnent pour pouvoir afficher mes vm dans le bastion
+
+malheuresement par la suite je n'ai eu le temps de finir car le routeur m'a beaucoup poser probleme
 
